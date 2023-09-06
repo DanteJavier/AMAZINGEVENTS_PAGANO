@@ -30,6 +30,9 @@ body{
 .navbar{
     background-color: #d3fff9 !important;
 }
+.navbar-collapse{
+    flex-grow: 0;
+}
 main{
     flex-grow: 1;
 }
@@ -72,11 +75,13 @@ main{
 th{
     background-color: rgb(170, 170, 169) !important;
 }
-.evento{
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10%;
+.filtros{
+    display: none;
+}
+.categoria{
+    display: none;
+}
+.details{
+    padding: 15px;
 }
 
