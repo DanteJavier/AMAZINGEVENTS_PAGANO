@@ -1,20 +1,19 @@
 // DOM selector
-const conteinerCards = document.getElementById('details')
-// Filtrado de tarjetas 
+const conteinerCards = document.getElementById("details");
+// Filtrado de tarjetas
 
 // URLSearchParams
 const querySearch = document.location.search;
-const id = new URLSearchParams(querySearch).get('id');
-console.log(id)
+const id = new URLSearchParams(querySearch).get("id");
 
 //Creacion de la card
-const eventoMostar = data.events.find(evento => evento._id === id)
+const eventoMostar = data.events.find((evento) => evento._id === id);
 
-function crearCardDetail(evento,contenedor){
-    contenedor.innerHTML= `<div class="card mb-3">
+function crearCardDetail(evento, contenedor) {
+  contenedor.innerHTML = `<div class="card mb-3">
                                 <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="${evento.image}" class="img-fluid rounded-start" alt="...">
+                                    <img src="${evento.image}" class="img-fluid rounded-start" alt="${evento.name}">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -27,7 +26,7 @@ function crearCardDetail(evento,contenedor){
                                     </div>
                                 </div>
                                 </div>
-                            </div>`
+                            </div>`;
 }
 
-crearCardDetail(eventoMostar,conteinerCards)
+crearCardDetail(eventoMostar, conteinerCards);

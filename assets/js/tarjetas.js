@@ -1,7 +1,7 @@
-function crearTarjetas(eventos,idContenedor){
-        let html = ""
-        for(let evento of eventos){
-            html += `<div class="col">
+function crearTarjetas(eventos, idContenedor) {
+  let html = "";
+  for (let evento of eventos) {
+    html += `<div class="col">
                             <div class="card">
                                 <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
                                 <div class="card-body">
@@ -12,6 +12,6 @@ function crearTarjetas(eventos,idContenedor){
                                 </div>
                             </div>
                     </div>`;
-        }
-        document.getElementById(idContenedor).innerHTML = html;
-    };
+  }
+  document.getElementById(idContenedor).innerHTML = html;
+}
