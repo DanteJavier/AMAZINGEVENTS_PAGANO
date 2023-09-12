@@ -1,13 +1,4 @@
-// DOM selector
-const conteinerCards = document.getElementById("details");
-// Filtrado de tarjetas
-
-// URLSearchParams
-const querySearch = document.location.search;
-const id = new URLSearchParams(querySearch).get("id");
-
-//Creacion de la card
-const eventoMostar = data.events.find((evento) => evento._id === id);
+let urlData = "https://mindhub-xj03.onrender.com/api/amazing";
 
 function crearCardDetail(evento, contenedor) {
   contenedor.innerHTML = `<div class="card mb-3">
@@ -29,4 +20,21 @@ function crearCardDetail(evento, contenedor) {
                             </div>`;
 }
 
-crearCardDetail(eventoMostar, conteinerCards);
+async function crearDetails(){
+    data = await getDataEvents(urlData);
+
+    console.log(data.events)
+
+    const conteinerCards = document.getElementById("details");
+
+    const querySearch = document.location.search;
+
+    const id = new URLSearchParams(querySearch).get("id");
+
+    console.log(id)
+    const eventoMostar = data.events.find((evento) => evento._id == id);
+    console.log(eventoMostar)
+    crearCardDetail(eventoMostar,conteinerCards)
+}
+
+crearDetails()

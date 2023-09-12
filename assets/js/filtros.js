@@ -1,10 +1,12 @@
-let categorias = [];
-
-data.events.forEach((evento) => {
-  if (!categorias.includes(evento.category)) {
-    categorias.push(evento.category);
-  }
-});
+function filtrarCategorias(eventos) {
+  let categoriasSimple = [];
+  eventos.forEach((evento) => {
+    if (!categoriasSimple.includes(evento.category)) {
+      categoriasSimple.push(evento.category);
+    }
+  });
+  return categoriasSimple;
+}
 
 function crearChekbox(categorias, idContenedor) {
   for (categoria of categorias) {
@@ -48,11 +50,12 @@ function aplicarFiltros(eventos, idContenedor) {
   crearTarjetas(filtrados, idContenedor);
 }
 
-function filterByDate(tiempo) {
-  let fechaActual = data.currentDate;
+function filterByDate(tiempo, currentDate, eventos) {
+  let fechaActual = currentDate;
+
   if (tiempo == "pasado") {
-    return data.events.filter((e) => e.date < fechaActual);
+    return eventos.filter((e) => e.date < fechaActual);
   } else if (tiempo == "futuro") {
-    return data.events.filter((e) => e.date > fechaActual);
+    return eventos.filter((e) => e.date > fechaActual);
   }
 }

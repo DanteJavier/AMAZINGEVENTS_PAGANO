@@ -89,7 +89,11 @@ main {
 }
 
 th {
-    background-color: rgb(170, 170, 169) !important;
+    background-color: #74f8e7 !important;
+}
+
+.categoriasTablas{
+    font-weight: bold !important;
 }
 
 .filtros {

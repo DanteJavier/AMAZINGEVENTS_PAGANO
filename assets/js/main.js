@@ -1,16 +1,25 @@
-crearChekbox(categorias, "filtro");
+let urlData = "https://mindhub-xj03.onrender.com/api/amazing";
 
-crearTarjetas(data.events, "contenedorTarjetasHome");
+let checkboxes = "";
+let buscador = "";
 
-let buscador = document.getElementById("buscador");
-let checkboxes = document.querySelectorAll(".checks");
+async function datos() {
+  data = await getDataEvents(urlData);
+  crearTarjetas(data.events, "contenedorTarjetasHome");
+  crearChekbox(filtrarCategorias(data.events), "filtro");
 
-checkboxes.forEach((c) => {
-  c.addEventListener("change", () => {
+  buscador = document.getElementById("buscador");
+  checkboxes = document.querySelectorAll(".checks");
+
+  checkboxes.forEach((c) => {
+    c.addEventListener("change", () => {
+      aplicarFiltros(data.events, "contenedorTarjetasHome");
+    });
+  });
+
+  buscador.addEventListener("input", () => {
     aplicarFiltros(data.events, "contenedorTarjetasHome");
   });
-});
+}
 
-buscador.addEventListener("input", () => {
-  aplicarFiltros(data.events, "contenedorTarjetasHome");
-});
+datos();
