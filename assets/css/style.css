@@ -46,12 +46,17 @@ main {
 }
 
 .tarjeta {
-    padding: 10px;
+    padding: 40px;
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-wrap: wrap !important; 
     align-items: center !important;
     justify-content: center !important;
     gap: 15px;
+}
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .d-block {

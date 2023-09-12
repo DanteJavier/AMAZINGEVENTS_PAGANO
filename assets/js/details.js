@@ -1,21 +1,16 @@
 let urlData = "https://mindhub-xj03.onrender.com/api/amazing";
 
 function crearCardDetail(evento, contenedor) {
-  contenedor.innerHTML = `<div class="card mb-3">
-                                <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="${evento.image}" class="img-fluid rounded-start" alt="${evento.name}">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                    <h5 class="card-title">${evento.name}</h5>
-                                    <p class="card-text">${evento.description}</p>
-                                    <p class="card-text">Place: ${evento.place}</p>
-                                    <p class="card-text">Capacity: ${evento.capacity}</p>
-                                    <p class="card-text">Price: $ ${evento.price}</p>
-                                    <p class="card-text">Date: ${evento.date}</p>
-                                    </div>
-                                </div>
+  contenedor.innerHTML = `
+                            <div class="card mb-3 col-xl-8 col-md-10">
+                                <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
+                                <div class="card-body">
+                                <h5 class="card-title">${evento.name}</h5>
+                                <p class="card-text">${evento.description}</p>
+                                <p class="card-text">Place: ${evento.place}</p>
+                                <p class="card-text">Capacity: ${evento.capacity}</p>
+                                <p class="card-text">Price: $ ${evento.price}</p>
+                                <p class="card-text">Date: ${evento.date}</p>
                                 </div>
                             </div>`;
 }
