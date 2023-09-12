@@ -2,7 +2,7 @@ const urlData = "https://mindhub-xj03.onrender.com/api/amazing";
 
 function calcularPAsistencia(eventos) {
   let pAsistencia = [];
-  eventos.forEach((evento) => {
+  eventos.forEach(evento => {
     if (evento.assistance != null) {
       let even = {};
       even.name = evento.name;
@@ -28,15 +28,15 @@ function calcularPAsistencia(eventos) {
   return pAsistencia;
 }
 
-function gananciasCategoriasPasadas(eventos) {
+function gananciasCategorias(eventos) {
   let categoriasFiltradas = [];
   let categorias = filtrarCategorias(eventos);
-  categorias.forEach((categoria) => {
+  categorias.forEach(categoria => {
     let todo = {};
     let gananciasTotales = 0;
     let asistenciasTotales = 0;
     let capacidadTotal = 0;
-    eventos.forEach((evento) => {
+    eventos.forEach(evento => {
       if (categoria == evento.category) {
         gananciasTotales = evento.ganancias + gananciasTotales;
         asistenciasTotales = evento.assistance + asistenciasTotales;
@@ -54,31 +54,6 @@ function gananciasCategoriasPasadas(eventos) {
   return categoriasFiltradas;
 }
 
-function gananciasCategoriasFuturas(eventos) {
-  let categoriasFiltradas = [];
-  let categorias = filtrarCategorias(eventos);
-  categorias.forEach((categoria) => {
-    let todo = {};
-    let gananciasTotales = 0;
-    let estimateTotales = 0;
-    let capacidadTotal = 0;
-    eventos.forEach((evento) => {
-      if (categoria == evento.category) {
-        gananciasTotales = evento.ganancias + gananciasTotales;
-        estimateTotales = evento.estimate + estimateTotales;
-        capacidadTotal = evento.capacity + capacidadTotal;
-      }
-    });
-    todo.name = categoria;
-    todo.ganancias = gananciasTotales;
-    todo.capacidad = capacidadTotal;
-    todo.asis = estimateTotales;
-    todo.porcentaje = (estimateTotales / capacidadTotal) * 100;
-    categoriasFiltradas.push(todo);
-  });
-
-  return categoriasFiltradas;
-}
 
 function ordenarMayorAMenor(eventos) {
   return eventos.sort((a, b) => b.pAssistance - a.pAssistance);
@@ -102,7 +77,7 @@ function crearTablas(eventos, capacidad, idContenedor) {
 
 function crearTablasCategory(eventos, idContenedor) {
   let html = "";
-  eventos.forEach((evento) => {
+  eventos.forEach(evento => {
     html += `<tr>
                     <td>${evento.name}</td>
                     <td>$ ${evento.ganancias}</td>
@@ -122,16 +97,16 @@ async function ejecucion() {
     "asistencia"
   );
   crearTablasCategory(
-    gananciasCategoriasPasadas(
+    gananciasCategorias(
       filterByDate("pasado", data.currentDate, eventosPAsistencia)
     ),
-    "eFuturo"
+    "ePasado"
   );
   crearTablasCategory(
-    gananciasCategoriasPasadas(
+    gananciasCategorias(
       filterByDate("futuro", data.currentDate, eventosPAsistencia)
     ),
-    "ePasado"
+    "eFuturo"
   );
 }
 

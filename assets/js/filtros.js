@@ -22,7 +22,7 @@ function crearChekbox(categorias, idContenedor) {
 function sinResultado(value) {
   let mensaje = "";
   if (value == true) {
-    mensaje = `<h3>No se encontraron resultados</h3>`;
+    mensaje = `<h3>No results found</h3>`;
   }
   document.getElementById("tarjeta0").innerHTML = mensaje;
 }

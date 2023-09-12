@@ -22,18 +22,10 @@ function crearCardDetail(evento, contenedor) {
 
 async function crearDetails(){
     data = await getDataEvents(urlData);
-
-    console.log(data.events)
-
     const conteinerCards = document.getElementById("details");
-
     const querySearch = document.location.search;
-
     const id = new URLSearchParams(querySearch).get("id");
-
-    console.log(id)
     const eventoMostar = data.events.find((evento) => evento._id == id);
-    console.log(eventoMostar)
     crearCardDetail(eventoMostar,conteinerCards)
 }
 

@@ -1,5 +1,5 @@
 let urlData = "https://mindhub-xj03.onrender.com/api/amazing"
-let eventos = []
+
 
 let checkboxes = ""
 let buscador = ""
